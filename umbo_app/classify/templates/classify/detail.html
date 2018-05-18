@@ -1,0 +1,13 @@
+<h1>Was the item in your image a...{{document.classification}} ? </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'classify:vote' %}" method="post">
+{% csrf_token %}
+    <input type="radio" name="choice" id="correct" value="1" />
+    <label > "Correct!"</label><br />
+    <input type="radio" name="choice" id="correct" value="2" />
+    <label > "Wrong!"</label><br />
+
+<input type="submit" value="Vote" />
+</form>
