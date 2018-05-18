@@ -17,18 +17,18 @@ docker-compose run
 Quit the server with CONTROL-C.',
 then just enter ctrl+c into the terminal and re-run 'docker-compose run'.)
 
-###5. Activate the DeepDetect service by running the following in another terminal:
+###3. Activate the DeepDetect service by running the following in another terminal:
 
 curl -X PUT "http://localhost:8080/services/imageserv" -d "{\"mllib\":\"caffe\",\"description\":\"image classification service\",\"type\":\"supervised\",\"parameters\":{\"input\":{\"connector\":\"image\"},\"mllib\":{\"nclasses\":1000}},\"model\":{\"repository\":\"/opt/models/ggnet/\"}}"
 
-###6. Finally, please run the following commands to initiate the storage of data entered into the app.
+###4. Finally, please run the following commands to initiate the storage of data entered into the app.
 
 docker exec -it umbo_app_web_1 bash
 
 python manage.py migrate
 
 
-###7.(Optional) Run --> 'sudo chown -R $USER:$USER .'  <-- to give yourself access to the postgresql data and media files stored by the app.
+###5.(Optional) Run --> 'sudo chown -R $USER:$USER .'  <-- to give yourself access to the postgresql data and media files stored by the app.
 
 
 ###The setup is now complete. To use the app, access the url http//:localhost/classify/list/ . From there, further instructions for use are provided. Enjoy!
