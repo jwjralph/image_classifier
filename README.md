@@ -1,33 +1,29 @@
 # image_classifier
 Webapp developed using Django which classifies images on upload. Uses DeepDetect. Stored in Docker containers.
 
-Welcome to James W.J Ralph's image classification app READ.ME.
+Welcome to James W.J Ralph's image classification app README.
 
 To begin the app:
 
-###1. Create a directory, and name it 'umbo_app'.
-###2. Download, or move, the app and all accompanying files to 'umbo_app'.
-###3. Open a terminal and change directory to 'umbo_app'
-###4. Run the following commands sequentially:
+###1. Open a terminal and change directory to 'umbo_app'
+###2. Run the following commands, sequentially:
 
 docker-compose build
 
 docker-compose run
 
 (If upon running the second command, the output doesn't finish with:
-
 'Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.',
+then just enter ctrl+c into the terminal and re-run 'docker-compose run'.)
 
-then just enter ctrl+c into the terminal and re-run the second command.)
-
-###5. Activate the DeepDetect service using by running the following in another terminal:
+###5. Activate the DeepDetect service by running the following in another terminal:
 
 curl -X PUT "http://localhost:8080/services/imageserv" -d "{\"mllib\":\"caffe\",\"description\":\"image classification service\",\"type\":\"supervised\",\"parameters\":{\"input\":{\"connector\":\"image\"},\"mllib\":{\"nclasses\":1000}},\"model\":{\"repository\":\"/opt/models/ggnet/\"}}"
 
 ###6. Finally, please run the following commands to initiate the storage of data entered into the app.
 
-docker exec -it umbo_app_web_1
+docker exec -it umbo_app_web_1 bash
 
 python manage.py migrate
 
