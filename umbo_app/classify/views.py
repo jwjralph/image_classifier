@@ -26,6 +26,7 @@ def list(request):
             #Supply filepath to the shell script which commands deepdetect server.
             d=date.today()
             d=d.strftime("/%Y/%m/%d/")
+            name1 = request.FILES['docfile'].name
             address1 = '/code/media/documents'+d+name1
             right_replaces("predict.sh", '$1', address1)
             ###Automation of signal passage between python container and deepdetect server
