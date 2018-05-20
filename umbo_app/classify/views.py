@@ -41,7 +41,7 @@ def list(request):
             maybe = str(execoutput, encoding='latin-1')
             right_replaces("execstart.sh", idstring, '$2')
             # Saves the long output from the deepdetect service and trims it down to just the primary image classification.
-            maybe = re.sub('[^ "a-zA-Z0-9]', '', maybe)
+            maybe = re.sub('[^ ",a-zA-Z0-9]', '', maybe)
             index = maybe.find('cat')
             maybe = maybe[index:]
             index = maybe.find(' ')
