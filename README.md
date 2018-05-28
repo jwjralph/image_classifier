@@ -10,12 +10,14 @@ To begin the app:
 
 docker-compose build
 
-docker-compose run
+docker-compose up
 
 (If upon running the second command, the output doesn't finish with:
+
 'Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.',
-then just enter ctrl+c into the terminal and re-run 'docker-compose run'.)
+
+just enter ctrl+c into the terminal and re-run 'docker-compose run'.)
 
 ###3. Activate the DeepDetect service by running the following in another terminal:
 
@@ -31,7 +33,7 @@ python manage.py migrate
 ###5.(Optional) Run --> 'sudo chown -R $USER:$USER .'  <-- to give yourself access to the postgresql data and media files stored by the app.
 
 
-###The setup is now complete. To use the app, access the url http//:localhost/classify/list/ . From there, further instructions for use are provided. Enjoy!
+###The setup is now complete. To use the app, access the url http//:localhost:8000/classify/list/ . From there, further instructions for use are provided. Enjoy!
 
 
 ----Overview----
